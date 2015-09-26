@@ -70,7 +70,7 @@ exports.compose = function (middleware) {
       next = exports.invoke(this, middleware[i], { next });
     }
 
-    yield* next;
+    return yield* next;
   }
 }
 

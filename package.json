@@ -1,6 +1,6 @@
 {
   "name": "fastdi",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Performance focused JavaScript dependency injection",
   "main": "index.js",
   "scripts": {
