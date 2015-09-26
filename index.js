@@ -24,7 +24,13 @@ function getParameters(fn) {
 }
 
 exports.register = function (name, value) {
-  dependencies[name] = value;
+  if (typeof name === 'object') {
+    Object.keys(name).forEach(function (k, v) {
+      exports.register(k, v);
+    });
+  } else {
+    dependencies[name] = value;
+  }
 };
 
 exports.invoke = function (that, func, localDependencies) {
