@@ -31,6 +31,7 @@ exports.register = function (name, value) {
   } else {
     dependencies[name] = value;
   }
+  return module.exports;
 };
 
 exports.invoke = function (that, func, localDependencies) {
