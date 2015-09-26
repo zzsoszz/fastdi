@@ -27,8 +27,8 @@ function getParameters(fn) {
 
 exports.register = function (name, value) {
   if (typeof name === 'object') {
-    Object.keys(name).forEach(function (k, v) {
-      exports.register(k, v);
+    Object.keys(name).forEach(function (k) {
+      exports.register(k, name[k]);
     });
   } else {
     dependencies[name] = value;
