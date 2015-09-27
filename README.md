@@ -14,7 +14,7 @@ var di = require('fastdi');
 
 di.register('User', { name: 'Bob' });
 
-di.invoke(null, function (User) {
+di.invoke(function (User) {
   console.log(User.name);
 });
 ```

@@ -36,7 +36,7 @@ exports.register = function (name, value) {
   return module.exports;
 };
 
-exports.invoke = function (that, func, localDependencies) {
+exports.invoke = function (func, localDependencies) {
   if (!localDependencies) {
     localDependencies = {};
   }
@@ -44,18 +44,18 @@ exports.invoke = function (that, func, localDependencies) {
     return localDependencies[p] || dependencies[p];
   });
   switch (parameters.length) {
-    case 0: return func.call(that);
-    case 1: return func.call(that, parameters[0]);
-    case 2: return func.call(that, parameters[0], parameters[1]);
-    case 3: return func.call(that, parameters[0], parameters[1], parameters[2]);
-    case 4: return func.call(that, parameters[0], parameters[1], parameters[2], parameters[3]);
-    case 5: return func.call(that, parameters[0], parameters[1], parameters[2], parameters[3], parameters[4]);
-    case 6: return func.call(that, parameters[0], parameters[1], parameters[2], parameters[3], parameters[4], parameters[5]);
-    case 7: return func.call(that, parameters[0], parameters[1], parameters[2], parameters[3], parameters[4], parameters[5], parameters[6]);
-    case 8: return func.call(that, parameters[0], parameters[1], parameters[2], parameters[3], parameters[4], parameters[5], parameters[6], parameters[7]);
-    case 9: return func.call(that, parameters[0], parameters[1], parameters[2], parameters[3], parameters[4], parameters[5], parameters[6], parameters[7], parameters[8]);
+    case 0: return func.call(this);
+    case 1: return func.call(this, parameters[0]);
+    case 2: return func.call(this, parameters[0], parameters[1]);
+    case 3: return func.call(this, parameters[0], parameters[1], parameters[2]);
+    case 4: return func.call(this, parameters[0], parameters[1], parameters[2], parameters[3]);
+    case 5: return func.call(this, parameters[0], parameters[1], parameters[2], parameters[3], parameters[4]);
+    case 6: return func.call(this, parameters[0], parameters[1], parameters[2], parameters[3], parameters[4], parameters[5]);
+    case 7: return func.call(this, parameters[0], parameters[1], parameters[2], parameters[3], parameters[4], parameters[5], parameters[6]);
+    case 8: return func.call(this, parameters[0], parameters[1], parameters[2], parameters[3], parameters[4], parameters[5], parameters[6], parameters[7]);
+    case 9: return func.call(this, parameters[0], parameters[1], parameters[2], parameters[3], parameters[4], parameters[5], parameters[6], parameters[7], parameters[8]);
   }
-  return func.apply(that, parameters);
+  return func.apply(this, parameters);
 };
 
 exports.compose = function (middleware) {
